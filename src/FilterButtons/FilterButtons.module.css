@@ -1,0 +1,14 @@
+.filterButton {
+    outline: none;
+    font-family: Sans-Serif;
+    background-color: #201C29;
+    color: #FFFFFF;
+    border: 1px solid #312D3C;
+    border-radius: 18px;
+    margin-top: 20px;
+}
+
+.filterButtonChosen {
+    composes: filterButton;
+    color: #2B8510;
+}

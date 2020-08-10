@@ -1,0 +1,11 @@
+.addInput {
+    outline: none;
+    font-family: Sans-Serif;
+    width: 400px;
+    height: 35px;
+    background-color: #201C29;
+    color: #FFFFFF;
+    border: 1px solid #312D3C;
+    border-radius: 18px;
+    padding: 5px;
+}

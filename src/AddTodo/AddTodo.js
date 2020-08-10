@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styles from "./AddTodo.module.css";
 
 export class AddTodo extends Component {
   state = {
@@ -19,6 +20,7 @@ export class AddTodo extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <input
+            className={styles.addInput}
             type='text'
             placeholder='What need to do?'
             onChange={this.handleChange}
