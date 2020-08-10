@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import TodoApp from "./TodoApp/TodoApp";
+import TodoApp from "./components/TodoApp/TodoApp";
 
 ReactDOM.render(
   <React.StrictMode>

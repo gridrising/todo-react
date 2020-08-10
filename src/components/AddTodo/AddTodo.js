@@ -17,16 +17,14 @@ export class AddTodo extends Component {
   };
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            className={styles.addInput}
-            type='text'
-            placeholder='What need to do?'
-            onChange={this.handleChange}
-          />
-        </form>
-      </div>
+      <form onSubmit={this.handleSubmit}>
+        <input
+          className={styles.addInput}
+          type='text'
+          placeholder='What need to do?'
+          onChange={this.handleChange}
+        />
+      </form>
     );
   }
 }
