@@ -4,8 +4,8 @@ import TodoList from "../TodoList/TodoList";
 import AddTodo from "../AddTodo/AddTodo";
 import FilterButtons from "../FilterButtons/FilterButtons";
 import Search from "../Search/Search";
-import "./mainContent.css";
-
+import styles from "./MainContent.module.css";
+import Increment from "../Increment/Increment";
 export class TodoApp extends Component {
   state = {
     todos: [],
@@ -69,7 +69,7 @@ export class TodoApp extends Component {
   };
   render() {
     return (
-      <div className='main-content'>
+      <div className={styles.mainContent}>
         <Search
           searchText={this.state.searchText}
           handleChange={this.handleChange}
@@ -87,6 +87,7 @@ export class TodoApp extends Component {
           currentButton={this.state.currentButton}
         />
         <AddTodo addTodo={this.addTodo} />
+        <Increment />
       </div>
     );
   }
