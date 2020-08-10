@@ -34,7 +34,7 @@ const TodoList = ({
       ? listOfCompleted
       : listOfUncompleted;
   const listWillDisplayWithSearch = listWillDisplay.filter((todo) =>
-    todo.props.todoContent.includes(searchText)
+    todo.props.todoContent.toLowerCase().includes(searchText.toLowerCase())
   );
   return (
     <ul className={styles.list}>
