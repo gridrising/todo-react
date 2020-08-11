@@ -31,8 +31,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         todos: state.todos.map((todo) => {
           if (todo.id === action.id) {
-            if (todo.completed) return { ...todo, completed: false };
-            else return { ...todo, completed: true };
+            return { ...todo, completed: !todo.completed };
           } else {
             return { ...todo };
           }
