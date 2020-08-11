@@ -1,31 +1,24 @@
 import React from "react";
 import ToDo from "../ToDo/ToDo";
 import styles from "./TodoList.module.css";
+import { connect } from "react-redux";
 
-const TodoList = ({
-  searchText,
-  todos,
-  deleteTodo,
-  switchCompleted,
-  currentButton,
-}) => {
+export const TodoList = ({ todos, currentButton, searchText }) => {
   const listOfTodo = todos.map((todo) => {
     return (
       <ToDo
         key={todo.id}
-        completedOrNot={todo.completed ? styles.completed : styles.toDo}
+        completedStyle={todo.completed ? styles.completed : styles.toDo}
         todoId={todo.id}
         todoContent={todo.content}
-        deleteTodo={deleteTodo}
-        switchCompleted={switchCompleted}
       />
     );
   });
   const listOfCompleted = listOfTodo.filter(
-    (todo) => todo.props.completedOrNot === styles.completed
+    (todo) => todo.props.completedStyle === styles.completed
   );
   const listOfUncompleted = listOfTodo.filter(
-    (todo) => todo.props.completedOrNot === styles.toDo
+    (todo) => todo.props.completedStyle === styles.toDo
   );
   const listWillDisplay =
     currentButton === "all"
@@ -43,4 +36,12 @@ const TodoList = ({
   );
 };
 
-export default TodoList;
+const mapStateToProps = (state) => ({
+  todos: state.todos,
+  currentButton: state.currentButton,
+  searchText: state.searchText,
+});
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

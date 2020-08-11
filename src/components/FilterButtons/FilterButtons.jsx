@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./FilterButtons.module.css";
 import FilterButton from "../FilterButton/FilterButton";
+import { connect } from "react-redux";
 
-const FilterButtons = ({ currentButton, handleClick }) => {
+export const FilterButtons = ({ currentButton }) => {
   return (
     <div>
       <FilterButton
-        handleClick={handleClick}
         chosen={
           currentButton === "all"
             ? styles.filterButtonChosen
@@ -15,7 +15,6 @@ const FilterButtons = ({ currentButton, handleClick }) => {
         variety='All'
       />
       <FilterButton
-        handleClick={handleClick}
         chosen={
           currentButton === "completed"
             ? styles.filterButtonChosen
@@ -24,7 +23,6 @@ const FilterButtons = ({ currentButton, handleClick }) => {
         variety='Completed'
       />
       <FilterButton
-        handleClick={handleClick}
         chosen={
           currentButton === "uncompleted"
             ? styles.filterButtonChosen
@@ -36,4 +34,10 @@ const FilterButtons = ({ currentButton, handleClick }) => {
   );
 };
 
-export default FilterButtons;
+const mapStateToProps = (state) => ({
+  currentButton: state.currentButton,
+});
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilterButtons);
